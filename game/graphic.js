@@ -16,7 +16,7 @@ function init()
     controls = new THREE.OrbitControls(camera, renderer.domElement);
 
     camera.position.z = 500;
-    scene.add(camera);
+    scene.add(camera);  
 
     renderer.setSize(WIDTH, HEIGHT);
 
