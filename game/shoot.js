@@ -19,7 +19,6 @@ function shoot()
         bullet.angle = player1.direction;
         player1.bullets.push(bullet);
         bulletTime1 = clock.getElapsedTime();
-        enemy1.dead();
     } 
 
     // move bullets
@@ -42,9 +41,12 @@ function collisions()
 
 function bullet_collision()
 {
+    // console.log("enemy = ", enemy1.graphic.position.z);
     //collision between bullet and walls
     for (var i = 0; i < player1.bullets.length; i++)
     {
+        console.log("bullet = ", player1.bullets[i].position.z);
+        console.log
         if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
             Math.abs(player1.bullets[i].position.y) >= HEIGHT / 2)
         {
@@ -52,18 +54,25 @@ function bullet_collision()
             player1.bullets.splice(i, 1);
             i--;
         }
-    }
     //[Ilo] collision between bullet and enemy
-    // for (var i = 0; i < player1.bullets.length; i++)
-    // {
-    //     if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
-    //         Math.abs(player1.bullets[i].position.y) >= HEIGHT / 2)
-    //     {
-    //         scene.remove(player1.bullets[i]);
-    //         player1.bullets.splice(i, 1);
-    //         i--;
-    //     }
-    // }
+    
+        // else if (Math.abs(player1.bullets[i].position.z) == enemy1.graphic.position.z)
+        //   
+        else if (
+                Math.abs(enemy1.graphic.position.z) == 6 &&
+                Math.abs(player1.bullets[i].position.x) >= enemy1.graphic.position.x &&
+                Math.abs(player1.bullets[i].position.x) <= enemy1.graphic.position.x + 30 &&
+                Math.abs(player1.bullets[i].position.x) >= enemy1.graphic.position.y &&
+                Math.abs(player1.bullets[i].position.y) <= enemy1.graphic.position.y + 30)
+        {
+          console.log("COLLISION pew pew");
+            scene.remove(player1.bullets[i]);
+            player1.bullets.splice(i, 1);
+            i--;
+            enemy1.dead();
+        }
+    }
+
 
 }
 

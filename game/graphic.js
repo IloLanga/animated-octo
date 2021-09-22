@@ -29,7 +29,7 @@ function init()
     scene.add(player1.graphic);
 
     //Create new enemy
-    enemy1 = new Enemy("enemy1", 0xf00000, new THREE.Vector2(50, 0), 5);
+    enemy1 = new Enemy("enemy1", 0xff0000, new THREE.Vector2(50, 0), 0);
     scene.add(enemy1.graphic);
 
     // enemy2 = new Enemy("enemy2", 0x00f000, new THREE.Vector2(50, 0), 10);
