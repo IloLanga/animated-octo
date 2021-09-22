@@ -37,6 +37,8 @@ function init()
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
+
+    
 }
 
 function Ground(color, size_x, size_y, nb_tile)

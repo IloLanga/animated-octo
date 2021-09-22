@@ -45,8 +45,6 @@ function bullet_collision()
     //collision between bullet and walls
     for (var i = 0; i < player1.bullets.length; i++)
     {
-        console.log("bullet = ", player1.bullets[i].position.z);
-        console.log
         if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
             Math.abs(player1.bullets[i].position.y) >= HEIGHT / 2)
         {
@@ -65,7 +63,6 @@ function bullet_collision()
                 Math.abs(player1.bullets[i].position.x) >= enemy1.graphic.position.y &&
                 Math.abs(player1.bullets[i].position.y) <= enemy1.graphic.position.y + 30)
         {
-          console.log("COLLISION pew pew");
             scene.remove(player1.bullets[i]);
             player1.bullets.splice(i, 1);
             i--;

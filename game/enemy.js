@@ -13,11 +13,16 @@ var Enemy = function(name, color, position, direction) {
 
   var singleGeometry = new THREE.Geometry();
 
-  vehiculeMesh = new THREE.ConeGeometry(10, 20, 50);    //(5, 20, 32);
+  vehiculeMesh = new THREE.ConeGeometry(10, 20, 50)
   this.graphic = new THREE.Mesh(vehiculeMesh, this.material);
   this.graphic.position.z = 6;
 
   this.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), this.direction+(3*Math.PI/2));
+
+  // while (true) {
+  //   console.log("hey");
+  // }
+
 };
 
 Enemy.prototype.dead = function () {
@@ -60,8 +65,6 @@ Enemy.prototype.turnLeft = function (angle) {
 };
 
 Enemy.prototype.move = function () {
-// console.log(this.position.x);
-// should stop at x = -300
   var moveTo = new THREE.Vector3(
       this.speed * Math.cos(this.direction) + this.position.x,
       this.speed * Math.sin(this.direction) + this.position.y,
