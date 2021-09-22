@@ -7,9 +7,11 @@ function update()
     if (keyboard.pressed("left"))
         player1.turnLeft(rotateAngle);
     if (keyboard.pressed("right"))
-        player1.turnRight(rotateAngle);
-    if (keyboard.pressed("up"))
+        //[Ilo] - to change direction
+        player1.turnRight(-rotateAngle);
+    if (keyboard.pressed("up")) {
         player1.accelerate(moveDistance);
+      } 
     if (keyboard.pressed("down"))
         player1.decelerate(moveDistance);
 
